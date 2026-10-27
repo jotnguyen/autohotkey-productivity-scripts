@@ -13,8 +13,8 @@ history on 2026-10-27.
   bypass them with `--no-verify`.
 - **No AI attribution** in commits or PRs. Commit with the repo's local noreply
   identity.
-- **Ask before installing software** (AutoHotkey), adding anything to startup, or
-  pushing.
+- **Ask before installing software**, adding anything to startup, or pushing. Never
+  force-push without the owner's say-so (history was rewritten once, on 2026-10-27).
 
 ## Code style
 

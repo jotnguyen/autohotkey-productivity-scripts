@@ -1,26 +1,29 @@
 # Hand-off
 
-Where this repo stands. Last updated 2026-10-27, when `capslock-alttab` was merged in.
+Where this repo stands. Last updated 2026-10-27.
 
 ## Status
 
 | Item | State |
 |---|---|
-| Cascade-Win, APM-Counter, Vimium | Unchanged since 2024. |
-| `CapsLockAltTab.ahk` | Written for AutoHotkey v2. **Never run**: AutoHotkey isn't installed on the owner's machine yet. |
-| `scripts/Set-Startup.ps1` | Now takes `-Script` (default `CapsLockAltTab.ahk`). Parses; `-WhatIf` only. Not run for real. |
-| Install | Waiting for the owner's OK to run `winget install --id AutoHotkey.AutoHotkey -e`. |
-| Old local repo | `Projects\capslock-alttab` is superseded by this one; delete it only when the owner says so. |
+| Cascade-Win, APM-Counter, Vimium | Code unchanged since 2024. All load cleanly under `AutoHotkey64.exe /Validate`. |
+| `CapsLockAltTab.ahk` | Loads cleanly under `/Validate`. **Never run for real**: nobody has tried it at the keyboard yet. |
+| `scripts/Set-Startup.ps1` | Takes `-Script` (default `CapsLockAltTab.ahk`). `-WhatIf` gives the right shortcut path, and a missing script throws. Never run for real. |
+| AutoHotkey | v2.0.31 installed per-user with winget (`AutoHotkey.AutoHotkey`, hash verified), in `%LOCALAPPDATA%\Programs\AutoHotkey\v2`. |
+| History | Rewritten and force-pushed on 2026-10-27, so every commit uses the noreply identity. The 2024 initial commit used to carry the owner's personal email. Old SHAs `5e82435` and `c848998` are gone. Re-clone any older checkout; never push one. |
+| `capslock-alttab` | The old local repo, merged here with its history, then moved to the Recycle Bin. |
 
 ## Next steps
 
-1. With the owner's OK, install AutoHotkey v2 (`winget`, see README).
-2. Run `CapsLockAltTab.ahk` and have the owner try it with a person at the keyboard:
-   tap Caps Lock (previous window), hold Caps Lock and tap Tab (cycle), Shift+Caps Lock
-   (real Caps Lock). Ask what actually happened. Make sure Vimium.ahk isn't running.
-3. If it works, run `scripts/Set-Startup.ps1` (ask first; it adds a startup shortcut).
+1. Test CapsLockAltTab with the owner at the keyboard. Make sure Vimium.ahk isn't running
+   (both bind Caps Lock). Start it, then ask the owner to try each of these and say
+   what actually happened:
+   tap Caps Lock (previous window), hold Caps Lock and tap Tab (cycle), Shift+Tab while
+   holding (back), Shift+Caps Lock (real Caps Lock on/off).
+2. If it works, ask before running `scripts/Set-Startup.ps1`; it adds a Startup-folder shortcut.
+3. Optional: the TODOs in the README for the older scripts.
 
 ## Rules
 
 See [AGENTS.md](AGENTS.md): noreply identity, no AI attribution, `bash scripts/hygiene.sh`
-must print `hygiene-ok`, and ask before installing anything or pushing.
+must print `hygiene-ok`, and ask before installing anything, adding to startup or pushing.
