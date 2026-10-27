@@ -10,7 +10,7 @@ Where this repo stands. Last updated 2026-10-27.
 | `CapsLockAltTab.ahk` | Loads cleanly under `/Validate`. **Never run for real**: nobody has tried it at the keyboard yet. |
 | `scripts/Set-Startup.ps1` | Takes `-Script` (default `CapsLockAltTab.ahk`). `-WhatIf` gives the right shortcut path, and a missing script throws. Never run for real. |
 | AutoHotkey | v2.0.31 installed per-user with winget (`AutoHotkey.AutoHotkey`, hash verified), in `%LOCALAPPDATA%\Programs\AutoHotkey\v2`. |
-| History | Rewritten and force-pushed on 2026-10-27, so every commit uses the noreply identity. The 2024 initial commit used to carry the owner's personal email. Old SHAs `5e82435` and `c848998` are gone. Re-clone any older checkout; never push one. |
+| History | Rewritten on 2026-10-27, so every commit uses the noreply identity. The 2024 initial commit used to carry the owner's personal email. The GitHub repo was then deleted and recreated, with the same name, description and topics, so the old SHAs `5e82435` and `c848998` are gone from GitHub too. Re-clone any older checkout; never push one. |
 | `capslock-alttab` | The old local repo, merged here with its history, then moved to the Recycle Bin. |
 
 ## Next steps
