@@ -1,1 +1,4 @@
 HotStrings.ahk
+# Logs and backups come from a real machine; keep them out.
+*.log
+*.lnk

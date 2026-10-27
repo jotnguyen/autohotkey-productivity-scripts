@@ -1,6 +1,6 @@
 # autohotkey-productivity-scripts
 
-Collection of productivity, gaming, and accessibility AutoHotkey v2 scripts for cascading windows, APM counter GUI, and VIM-like controls. Feel free to use and distribute these scripts.
+Collection of productivity, gaming, and accessibility AutoHotkey v2 scripts for cascading windows, APM counter GUI, VIM-like controls, and Caps Lock window switching. Feel free to use and distribute these scripts.
 
 To download AutoHotkey, visit [http://www.autohotkey.com/](http://www.autohotkey.com/).
 ## Scripts
@@ -27,14 +27,41 @@ Still needs a lot of work.
 - Switching between monitors
 - Dragging and clicking with keyboard shortcuts
 
+### [CapsLockAltTab.ahk](./CapsLockAltTab.ahk)
+Caps Lock becomes Alt+Tab, so switching windows on one monitor takes one key instead of two.
+
+| Keys | What happens |
+|---|---|
+| Tap Caps Lock | Switch to the previous window |
+| Hold Caps Lock, tap Tab | Keep the switcher open and step through windows. Shift+Tab steps back, and the arrow keys work too |
+| Release Caps Lock | Go to the selected window |
+| Shift+Caps Lock | Turn real Caps Lock on or off |
+
+Limits:
+- Windows doesn't let a normal program send keys to an elevated (admin) window. While an admin window has focus, Caps Lock won't switch away from it. Running the script as admin fixes that, but isn't worth it for most people.
+- If the script is killed while Caps Lock is held, Alt can stay held. Tap Alt to release it.
+
+> **Don't run it alongside Vimium.ahk.** Both take over Caps Lock, so only one of them can have it.
+
 ## How to Compile and Use
 
 ### Prerequisites
-- [AutoHotkey v2](https://www.autohotkey.com/v2/) installed on your system.
+- [AutoHotkey v2](https://www.autohotkey.com/v2/) installed on your system. With winget:
+    ```powershell
+    winget install --id AutoHotkey.AutoHotkey -e
+    ```
 
 ### Running the Scripts
 1. **Download the scripts**: Clone this repository or download the individual `.ahk` files.
-2. **Run the scripts**: Double-click the `.ahk` files to run them with AutoHotkey v2.
+2. **Run the scripts**: Double-click the `.ahk` files to run them with AutoHotkey v2. A green "H" icon in the notification area means a script is running; right-click it to pause or exit.
+
+### Starting a Script at Sign-in
+[scripts/Set-Startup.ps1](./scripts/Set-Startup.ps1) puts a shortcut to a script in your Startup folder (`shell:startup`). It defaults to `CapsLockAltTab.ahk`; pass `-Script` for another one, and `-Remove` to undo:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\Set-Startup.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\Set-Startup.ps1 -Script Cascade-Win.ahk
+powershell -ExecutionPolicy Bypass -File .\scripts\Set-Startup.ps1 -Remove
+```
 
 ### Compiling the Scripts
 To compile the scripts into executable files:
@@ -64,4 +91,5 @@ To compile the scripts into executable files:
 - [ ] Add support for custom keybindings.
 - [ ] Enhance crosshair navigation accuracy.
 
----
+### [CapsLockAltTab.ahk](./CapsLockAltTab.ahk)
+- [ ] Test it on a real keyboard: tap, hold+Tab, Shift+Caps Lock.
